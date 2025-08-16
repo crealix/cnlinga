@@ -171,25 +171,76 @@ backToTop.addEventListener("click", () => {
 });
 
 // Lightbox functionality
-const galleryImages = document.querySelectorAll(".gallery img");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const closeBtn = document.getElementById("close");
+// const galleryImages = document.querySelectorAll(".gallery img");
+// const lightbox = document.getElementById("lightbox");
+// const lightboxImg = document.getElementById("lightbox-img");
+// const closeBtn = document.getElementById("close");
+//
+// galleryImages.forEach(img => {
+//   img.addEventListener("click", () => {
+//     lightbox.style.display = "flex";
+//     lightboxImg.src = img.src;
+//   });
+// });
+//
+// closeBtn.addEventListener("click", () => {
+//   lightbox.style.display = "none";
+// });
+//
+// lightbox.addEventListener("click", (e) => {
+//   if (e.target !== lightboxImg) {
+//     lightbox.style.display = "none";
+//   }
+// });
 
-galleryImages.forEach(img => {
-  img.addEventListener("click", () => {
-    lightbox.style.display = "flex";
-    lightboxImg.src = img.src;
-  });
-});
 
-closeBtn.addEventListener("click", () => {
-  lightbox.style.display = "none";
-});
 
-lightbox.addEventListener("click", (e) => {
-  if (e.target !== lightboxImg) {
-    lightbox.style.display = "none";
-  }
-});
+// Switch tabs
+   function showTab(event, tabId) {
+     document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
+     document.querySelectorAll(".tab-content").forEach(content => content.classList.remove("active"));
+     event.target.classList.add("active");
+     document.getElementById(tabId).classList.add("active");
+   }
 
+   // Filter inside tabs
+   function filterGallery(event, tabId, category) {
+     document.querySelectorAll(`#${tabId} .filter`).forEach(f => f.classList.remove("active"));
+     event.target.classList.add("active");
+
+     const images = document.querySelectorAll(`#${tabId} .project-gallery img`);
+     images.forEach(img => {
+       img.style.display = (category === "all" || img.classList.contains(category)) ? "block" : "none";
+     });
+   }
+
+   // Lightbox functionality
+   let currentIndex = 0;
+   let currentImages = [];
+
+   document.querySelectorAll(".project-gallery img").forEach((img, index) => {
+     img.addEventListener("click", () => {
+       currentImages = Array.from(img.closest(".project-gallery").querySelectorAll("img")).filter(i => i.style.display !== "none");
+       currentIndex = currentImages.indexOf(img);
+       openLightbox(currentImages[currentIndex].src);
+     });
+   });
+
+   function openLightbox(src) {
+     document.getElementById("lightbox").style.display = "flex";
+     document.getElementById("lightbox-img").src = src;
+   }
+
+   function closeLightbox() {
+     document.getElementById("lightbox").style.display = "none";
+   }
+
+   function changeImage(step) {
+     currentIndex = (currentIndex + step + currentImages.length) % currentImages.length;
+     document.getElementById("lightbox-img").src = currentImages[currentIndex].src;
+   }
+
+   // Close lightbox on background click
+   document.getElementById("lightbox").addEventListener("click", (e) => {
+     if (e.target.id === "lightbox") closeLightbox();
+   });

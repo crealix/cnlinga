@@ -201,10 +201,12 @@ header .container{
 }
 
 .gallery-item img {
-    width: 100%;
-    aspect-ratio: 1 / 1;  /* keeps it square */
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;   /* force square box */
+  object-fit: cover;     /* crop instead of stretch */
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 
@@ -806,3 +808,176 @@ h2 {
        gap: 30px;
      }
    }
+
+
+    /* Main Tabs */
+   .tabs {
+     /* display: flex;
+     flex-wrap: wrap;
+     border-bottom: 2px solid #ddd;
+     margin-bottom: 20px;
+     gap: 5px; */
+     padding-top: 1rem;
+     display: flex;
+     justify-content: flex-start;
+     border-bottom: 2px solid #ddd;
+     margin-bottom: 20px;
+     overflow-x: auto;
+     scrollbar-width: none; /* Firefox */
+   }
+   .tab {
+     padding: 10px 15px;
+     cursor: pointer;
+     font-weight: bold;
+     color: #555;
+     border-bottom: 3px solid transparent;
+     transition: 0.3s;
+     flex: 1;
+     text-align: center;
+   }
+   .tab.active {
+     color: #000;
+     border-bottom: 3px solid #1877f2;
+   }
+   /* Gallery Images */
+   .tab-content img {
+     width: 100%;
+     height: 200px;
+     border-radius: 8px;
+     object-fit: cover;
+     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+     transition: transform 0.3s ease;
+   }
+   .tab-content img:hover {
+     transform: scale(1.05);
+   }
+   /* Filters */
+   .filters {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 10px;
+     margin-bottom: 15px;
+   }
+   .filter {
+     padding: 6px 15px;
+     background: #eee;
+     border-radius: 20px;
+     cursor: pointer;
+     font-size: 14px;
+     transition: 0.3s;
+   }
+   .filter.active {
+     background: #1877f2;
+     color: #fff;
+   }
+
+   /* Tab Content */
+   .tab-content {
+     display: none;
+     padding: 2rem;
+     animation: fadeIn 0.4s;
+   }
+   .tab-content.active {
+     display: block;
+   }
+
+   /* Gallery */
+   .project-gallery {
+     display: grid;
+     /* grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); */
+     grid-template-columns: repeat(4, 1fr);
+     gap: 12px;
+   }
+   .project-gallery img {
+     width: 100%;
+     border-radius: 8px;
+     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+     object-fit: cover;
+     transition: transform 0.3s;
+     cursor: pointer;
+   }
+   .project-gallery img:hover {
+     transform: scale(1.05);
+   }
+
+   /* Lightbox Modal */
+   .lightbox {
+     display: none;
+     position: fixed;
+     z-index: 1000;
+     left: 0; top: 0;
+     width: 100%; height: 100%;
+     background: rgba(0,0,0,0.9);
+     justify-content: center;
+     align-items: center;
+   }
+   .lightbox img {
+     max-width: 90%;
+     max-height: 80%;
+     border-radius: 10px;
+     box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+   }
+   .lightbox .close,
+   .lightbox .prev,
+   .lightbox .next {
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     font-size: 40px;
+     color: white;
+     cursor: pointer;
+     padding: 10px;
+     user-select: none;
+   }
+   .lightbox .close {
+     top: 20px;
+     right: 30px;
+     font-size: 35px;
+   }
+   .lightbox .prev { left: 30px; }
+   .lightbox .next { right: 30px; }
+
+   /* Animations */
+   @keyframes fadeIn {
+     from {opacity: 0;}
+     to {opacity: 1;}
+   }
+
+   /* Responsive */
+   /* @media (max-width: 1024px) {
+     .gallery { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+   } */
+   @media (max-width: 600px) {
+     .tabs { flex-direction: column; border-bottom: none; }
+     .tab { border: 1px solid #ddd; border-radius: 6px; flex: unset; margin-bottom: 5px; }
+     .tab.active { border: 1px solid #1877f2; background: #eaf3ff; }
+     /* .project-gallery { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); } */
+     .lightbox img { max-width: 95%; max-height: 70%; }
+     .lightbox .prev, .lightbox .next { font-size: 30px; }
+   }
+
+//////////////
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  /* .tab-content.active {
+
+  }
+  .gallery { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); } */
+  .project-gallery {grid-template-columns: repeat(4, 1fr);}
+}
+
+@media (max-width: 768px) {
+.project-gallery {grid-template-columns: repeat(2, 1fr);}
+  .tab {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+.project-gallery {grid-template-columns: repeat(2, 1fr);}
+  .tab {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+}
