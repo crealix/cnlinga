@@ -889,11 +889,19 @@ h2 {
      gap: 12px;
    }
    .project-gallery img {
-     width: 100%;
+     /* width: 100%;
      border-radius: 8px;
      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
      object-fit: cover;
      transition: transform 0.3s;
+     cursor: pointer; */
+
+     width: 100%;
+     height: 100%;
+     aspect-ratio: 1 / 1;   /* force square box */
+     object-fit: cover;     /* crop instead of stretch */
+     border-radius: 8px;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
      cursor: pointer;
    }
    .project-gallery img:hover {
