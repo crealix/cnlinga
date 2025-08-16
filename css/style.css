@@ -749,3 +749,60 @@ h2 {
   .banner.dark h1{font-size:1.25rem}
   header .container{padding:8px}
 }
+
+
+/* Section background (parchment style, optional) */
+   .mission-vision-section {
+     background: #EEEFE0; /* change to your bg image if needed */
+     padding: 60px 20px;
+   }
+
+   /* Flex container for desktop */
+   .mission-vision-container {
+     display: flex;
+     justify-content: center;
+     align-items: flex-start;
+     gap: 40px;
+     max-width: 1100px;
+     margin: 0 auto;
+   }
+
+   /* Each column */
+   .mission-vision-box {
+     flex: 1;
+     min-width: 300px;
+     text-align: justify;
+   }
+
+   /* Titles */
+   .mission-vision-box h2 {
+     font-family: 'Playfair Display', serif;
+     font-size: 28px;
+     font-weight: 600;
+     color: #4a321c; /* earthy brown tone */
+     text-align: center;
+     margin-bottom: 20px;
+   }
+
+   /* Body text */
+   .mission-vision-box p, {
+     font-family: 'Montserrat', sans-serif;
+     font-size: 16px;
+     font-weight: 300;
+     line-height: 1.7;
+     color: #333;
+   }
+
+   /* Bold highlights */
+   .mission-vision-box strong {
+     font-weight: 600;
+     color: #504B38; /* deep green for emphasis */
+   }
+
+   /* Mobile responsive: stack */
+   @media (max-width: 768px) {
+     .mission-vision-container {
+       flex-direction: column;
+       gap: 30px;
+     }
+   }
