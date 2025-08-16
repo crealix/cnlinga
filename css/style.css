@@ -299,21 +299,31 @@ header .container{
 #experience p{margin-bottom:14px}
 
 /* ====== FOOTER ====== */
-footer {
-  background-color: #FBF3D5; /* Same as navbar */
-  padding:28px 12px;
-  display:flex;
-  gap:18px;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  align-items:flex-start;
+/* Footer */
+.footer-container {
+  background-color: #1C352D;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 20px;
 }
-.footer-column{flex:1;min-width:220px}
-.footer-column h3{margin-bottom:8px}
-.footer-column p{color:var(--muted-dark)}
-.social-icons{display:flex;gap:10px}
-.social-icons a{color:inherit;text-decoration:none;padding:6px 8px;border-radius:6px;background:rgba(255,255,255,0.04)}
 
+footer {
+ background-color: #2D531A; /* Deep forest green */
+ color: #EEEFE0; /* Cream text */
+ padding: 20px;
+ text-align: center;
+}
+/* Footer */
+footer a {
+ color: #A7C1A8; /* Dusty green links */
+ text-decoration: none;
+}
+
+footer a:hover {
+ color: #819A91; /* Sage hover */
+}
 /* ====== Back to Top Button ====== */
 #backToTop{
   position:fixed;
@@ -516,15 +526,6 @@ h2 {
     text-decoration: none;
 }
 
-/* Footer */
-.footer-container {
-  background-color: #1C352D;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    text-align: center;
-    gap: 20px;
-}
 
 /* Back to Top */
 #backToTop {
@@ -685,7 +686,6 @@ h2 {
   header .container{padding:10px}
   .mobile-nav{display:block}
   .gallery{grid-template-columns:repeat(2,1fr)}
-  footer{flex-direction:column;gap:10px}
   .split{height:auto}
 }
 
