@@ -212,6 +212,10 @@ backToTop.addEventListener("click", () => {
      images.forEach(img => {
        img.style.display = (category === "all" || img.classList.contains(category)) ? "block" : "none";
      });
+     const iframe = document.querySelectorAll(`#${tabId} .project-gallery iframe`);
+     iframe.forEach(iframe => {
+       iframe.style.display = (category === "all" || img.classList.contains(category)) ? "block" : "none";
+     });
    }
 
    // Lightbox functionality
@@ -221,6 +225,14 @@ backToTop.addEventListener("click", () => {
    document.querySelectorAll(".project-gallery img").forEach((img, index) => {
      img.addEventListener("click", () => {
        currentImages = Array.from(img.closest(".project-gallery").querySelectorAll("img")).filter(i => i.style.display !== "none");
+       currentIndex = currentImages.indexOf(img);
+       openLightbox(currentImages[currentIndex].src);
+     });
+   });
+
+   document.querySelectorAll(".project-gallery iframe").forEach((img, index) => {
+     img.addEventListener("click", () => {
+       currentImages = Array.from(img.closest(".project-gallery").querySelectorAll("iframe")).filter(i => i.style.display !== "none");
        currentIndex = currentImages.indexOf(img);
        openLightbox(currentImages[currentIndex].src);
      });
