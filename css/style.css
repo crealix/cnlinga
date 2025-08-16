@@ -310,7 +310,7 @@ header .container{
 }
 
 footer {
- background-color: #2D531A; /* Deep forest green */
+ background-color: #504a3f;
  color: #EEEFE0; /* Cream text */
  padding: 20px;
  text-align: center;
@@ -364,7 +364,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #415E72;
+  background-color: #504a3f;
   color: white
   position: sticky;
   top: 0;
@@ -403,7 +403,7 @@ body {
 
 .nav-title {
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin: 0;
 }
 
@@ -422,7 +422,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: #1abc9c;
+    color: #E5E483;
 }
 
 /* Hamburger icon */
@@ -443,14 +443,13 @@ body {
 
 /* Sections */
 .dark-section {
-    background: #2C3E50;
+    background: #806948;
     color: #fff;
     padding: 60px 20px;
 }
 
 .light-section {
-    background: #fff;
-    color: #2C3E50;
+    background: #fffef7;
     padding: 60px 20px;
 }
 
@@ -459,9 +458,17 @@ h2 {
     margin-bottom: 30px;
 }
 
-
+.text-title-center {
+  color: #8E806A;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.text-desc-center {
+  color: #504a3f;
+  text-align: center;
+}
 .text-desc {
-  color: #2C3E50;
+  color: #504a3f;
   text-align: left;
 }
 .text-desc-light {
@@ -532,7 +539,7 @@ h2 {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #1ABC9C;
+    background: #A79277;
     color: #fff;
     border: none;
     border-radius: 50%;
@@ -609,7 +616,7 @@ h2 {
     object-fit: cover;
     border-radius: 50%;
     border: 4px solid white;
-    margin-top: -100px;
+    margin-top: -160px;
 }
 
 /* Text styles */
@@ -649,7 +656,7 @@ h2 {
 }
 
 .cv-btn {
-    background: orange;
+    background: #B2B377;
     color: white;
     padding: 10px 20px;
     border-radius: 6px;
@@ -658,6 +665,9 @@ h2 {
     display: inline-block;
 }
 
+.cv-btn:hover {
+  background: #A79277; /* Darker green hover */
+}
 /* ======================================= */
 /* ====== Mobile Responsive styles ====== */
 /* ======================================= */
@@ -698,7 +708,7 @@ h2 {
         position: absolute;
         top: 60px;
         right: 0; /* align dropdown to right */
-        background-color: #415E72;
+        background-color: #504a3f;
         flex-direction: column;
         gap: 0;
         display: none;
@@ -726,9 +736,9 @@ h2 {
     }
 
     .profile-pic {
-        width: 120px;
-        height: 120px;
-        margin-top: -80px;
+        width: 140px;
+        height: 140px;
+        margin-top: -120px;
     }
 
     .profile-card {
@@ -781,14 +791,15 @@ h2 {
      font-family: 'Playfair Display', serif;
      font-size: 28px;
      font-weight: 600;
-     color: #4a321c; /* earthy brown tone */
-     text-align: center;
+     color: #be8d31; /* earthy brown tone */
+     text-align: justify;
      margin-bottom: 20px;
    }
 
    /* Body text */
    .mission-vision-box p, {
      font-family: 'Montserrat', sans-serif;
+     color: #504B38;
      font-size: 16px;
      font-weight: 300;
      line-height: 1.7;
